@@ -1,3 +1,6 @@
+var form = document.querySelector("#form");
+var input = document.querySelector("#startDate");
+var input2 = document.querySelector("#startTime");
 var Clock = /** @class */ (function () {
     function Clock() {
         this.DateObj = new Date();
@@ -7,6 +10,7 @@ var Clock = /** @class */ (function () {
         this.diffMins = 0;
         this.diffSec = 0;
     }
+    //Displays Data calulated 
     Clock.prototype.TimeLaps = function () {
         document.getElementById("time").innerHTML = " Weeks " + this.diffWeeks + " Days " + this.diffDays + " Hours " + this.diffHours + " Mins " + this.diffMins + "<br/> Sec " + this.diffSec;
     };
@@ -43,14 +47,10 @@ var Clock = /** @class */ (function () {
     };
     return Clock;
 }());
-var form = document.querySelector("#form");
-var input = document.querySelector("#startDate");
-var input2 = document.querySelector("#startTime");
-var C2 = new Clock();
-//Sets the 
+//Event Listeners 
 form.addEventListener("mouseover", function (e) {
     e.preventDefault();
-    var Limit = C2.DateObj;
+    var Limit = new Clock().DateObj;
     var Y = Limit.getFullYear();
     var M = Limit.getMonth() + 1;
     var D = Limit.getDate();
@@ -58,6 +58,7 @@ form.addEventListener("mouseover", function (e) {
 });
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+    //loops 1000ms updating time passed
     setInterval(function () {
         var Cl = new Clock();
         Cl.CurrentTime(input.value, input2.value);

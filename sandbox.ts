@@ -1,10 +1,14 @@
+const form= document.querySelector("#form") as HTMLFormElement;
+const input=document.querySelector("#startDate") as HTMLInputElement;
+const input2=document.querySelector("#startTime") as HTMLInputElement;
 class Clock{
-    DateObj:Date; 
-    diffDays:number
-    diffWeeks:number;
-    diffHours:number;
-    diffMins:number;
-    diffSec:number;
+    public DateObj:Date; 
+    private diffDays:number
+    private diffWeeks:number;
+    private diffHours:number;
+    private diffMins:number;
+    private diffSec:number;
+
     constructor( ){
         this.DateObj=new Date();
         this.diffWeeks=0;
@@ -14,6 +18,7 @@ class Clock{
         this.diffSec=0;
       
     }
+    //Displays Data calulated 
     TimeLaps(){
       document.getElementById("time").innerHTML=" Weeks "+this.diffWeeks+" Days "+this.diffDays+" Hours "+this.diffHours+" Mins "+this.diffMins+"<br/> Sec "+this.diffSec;
     }
@@ -58,17 +63,11 @@ class Clock{
     }
 }
 
-const form= document.querySelector("#form") as HTMLFormElement;
-const input=document.querySelector("#startDate") as HTMLInputElement;
-const input2=document.querySelector("#startTime") as HTMLInputElement;
- 
-var C2=new Clock();
-
-//Sets the 
+//Event Listeners 
 form.addEventListener("mouseover",(e:Event)=>{
     
     e.preventDefault();
-    var Limit= C2.DateObj;
+    var Limit= new Clock().DateObj;
     let Y = Limit.getFullYear();
     let M= Limit.getMonth()+1;
     let D= Limit.getDate();
@@ -77,6 +76,7 @@ form.addEventListener("mouseover",(e:Event)=>{
 
 form.addEventListener('submit',(e:Event)=>{
     e.preventDefault();
+    //loops 1000ms updating time passed
     setInterval(()=>{
     var Cl=new Clock();
     Cl.CurrentTime(input.value,input2.value);
