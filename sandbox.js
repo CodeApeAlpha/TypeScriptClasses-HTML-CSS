@@ -12,7 +12,7 @@ var Clock = /** @class */ (function () {
     }
     //Displays Data calulated 
     Clock.prototype.TimeLaps = function () {
-        document.getElementById("time").innerHTML = " Weeks " + this.diffWeeks + " Days " + this.diffDays + " Hours " + this.diffHours + " Mins " + this.diffMins + "<br/> Sec " + this.diffSec;
+        document.getElementById("time").innerHTML = this.diffWeeks + " Weeks " + this.diffDays + " Days " + this.diffHours + " Hours " + this.diffMins + " Mins " + this.diffSec + "<br/> Sec ";
     };
     Clock.prototype.CurrentTime = function (DateSelected, TimeSelected) {
         var yearSelected = DateSelected[0] + DateSelected[1] + DateSelected[2] + DateSelected[3];

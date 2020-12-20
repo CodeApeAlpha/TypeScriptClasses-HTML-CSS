@@ -1,6 +1,7 @@
 const form= document.querySelector("#form") as HTMLFormElement;
 const input=document.querySelector("#startDate") as HTMLInputElement;
 const input2=document.querySelector("#startTime") as HTMLInputElement;
+
 class Clock{
     public DateObj:Date; 
     private diffDays:number
@@ -20,7 +21,7 @@ class Clock{
     }
     //Displays Data calulated 
     TimeLaps(){
-      document.getElementById("time").innerHTML=" Weeks "+this.diffWeeks+" Days "+this.diffDays+" Hours "+this.diffHours+" Mins "+this.diffMins+"<br/> Sec "+this.diffSec;
+      document.getElementById("time").innerHTML=this.diffWeeks+" Weeks "+this.diffDays+" Days "+this.diffHours+" Hours "+this.diffMins+" Mins "+this.diffSec+"<br/> Sec ";
     }
 
     CurrentTime( DateSelected,TimeSelected){
@@ -62,7 +63,6 @@ class Clock{
    
     }
 }
-
 //Event Listeners 
 form.addEventListener("mouseover",(e:Event)=>{
     
@@ -73,7 +73,6 @@ form.addEventListener("mouseover",(e:Event)=>{
     let D= Limit.getDate();
     input.setAttribute('max',Y+"-"+M+"-"+(D-1)); 
 })
-
 form.addEventListener('submit',(e:Event)=>{
     e.preventDefault();
     //loops 1000ms updating time passed
