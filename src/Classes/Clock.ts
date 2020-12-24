@@ -15,6 +15,7 @@
     }
 //Displays Data calulated 
     public  TimeLaps(DateTimeEntered:Date ){
+        // setInterval(()=>{
             //Resets the current Date object-For Accurate comparision 
             this.CurrentDateTime=new Date();
             //Subtract the for the differnce of the two Date Object 
@@ -46,28 +47,43 @@
                 this.diffSec= Math.trunc((diff)/ (1000));
                 diff=((diff)% (1000));
             }
-            //Returns date passed in a defualt format
-            return this.diffWeeks+" Weeks "+this.diffDays+" Days "+this.diffHours+" Hours "+this.diffMins+" Mins "+this.diffSec+" Sec "  
+        // },1000);
+        //Returns date passed in a defualt format
+        return this.diffWeeks+" Weeks "+this.diffDays+" Days "+this.diffHours+" Hours "+this.diffMins+" Mins "+this.diffSec+" Sec "  
         
     }
 //Function used to format Current Date 
 //Retunring yy/mm/dd
-    public CurrentDate(){
-       
-        
-        let Y =this.CurrentDateTime.getFullYear();
-        let M= this.CurrentDateTime.getMonth()+1;
-        let D= this.CurrentDateTime.getDate();
-        
-        return (Y+"-"+M+"-"+(D-1));
+    public CurrentDate(format:string){
+         
+        if(format=="DD-MM-YY"){
+            let d=this.CurrentDateTime=new Date();
+            return d.toDateString()
+        }
+        else if(format=="MAX"){
+            let Y =this.CurrentDateTime.getFullYear();
+            let M= this.CurrentDateTime.getMonth()+1;
+            let D= this.CurrentDateTime.getDate();
+            return (Y+"-"+M+"-"+(D-1));
+        }
+        return " ";
     }
-
+    // public 
     public CurrentTime(){
         this.CurrentDateTime=new Date();
+        let Minutes
+        if(this.CurrentDateTime.getMinutes()<10){
+            Minutes="0"+this.CurrentDateTime.getMinutes()
+        }
+        else{
+            Minutes=this.CurrentDateTime.getMinutes();
+        }
+
         if(this.CurrentDateTime.getHours()>12){
-            return ((this.CurrentDateTime.getHours()-12)+":"+this.CurrentDateTime.getMinutes()+":"+this.CurrentDateTime.getSeconds()+" PM ");
+
+            return ((this.CurrentDateTime.getHours()-12)+":"+Minutes+":"+this.CurrentDateTime.getSeconds()+" PM ");
         }else{
-            return (this.CurrentDateTime.getHours()+":"+this.CurrentDateTime.getMinutes()+":"+this.CurrentDateTime.getSeconds()+" AM ");
+            return (this.CurrentDateTime.getHours()+":"+Minutes+":"+this.CurrentDateTime.getSeconds()+" AM ");
         }
     }
     //Getters 
