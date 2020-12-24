@@ -9,7 +9,6 @@ export class Clock {
     }
     //Displays Data calulated 
     TimeLaps(DateTimeEntered) {
-        // setInterval(()=>{
         //Resets the current Date object-For Accurate comparision 
         this.CurrentDateTime = new Date();
         //Subtract the for the differnce of the two Date Object 
@@ -40,13 +39,13 @@ export class Clock {
             this.diffSec = Math.trunc((diff) / (1000));
             diff = ((diff) % (1000));
         }
-        // },1000);
         //Returns date passed in a defualt format
         return this.diffWeeks + " Weeks " + this.diffDays + " Days " + this.diffHours + " Hours " + this.diffMins + " Mins " + this.diffSec + " Sec ";
     }
     //Function used to format Current Date 
     //Retunring yy/mm/dd
     CurrentDate(format) {
+        //if Satement used to sort format bassed on the parameter passed
         if (format == "DD-MM-YY") {
             let d = this.CurrentDateTime = new Date();
             return d.toDateString();
@@ -59,10 +58,12 @@ export class Clock {
         }
         return " ";
     }
-    // public 
+    //Function used to format and return  Current Date 
     CurrentTime() {
+        //Resets current Date
         this.CurrentDateTime = new Date();
         let Minutes;
+        //If used to fromat Time
         if (this.CurrentDateTime.getMinutes() < 10) {
             Minutes = "0" + this.CurrentDateTime.getMinutes();
         }
