@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="shortcut icon" href="./images/Ts2.png" />
     <title>TypeScript</title>
 </head>
+
 <body>
     <div class="container m-3 ">
         <div class="card">
@@ -21,27 +23,28 @@
             </div>
         </div>
         <form id="form">
-            <div class="card cardTwo" >
+            <div class="card cardTwo">
                 <div class="card-body">
                     <div class="input">
                         <label class="form-label card-title" for="">Start date:</label>
-                        <input class="form-control" required type="date" id="startDate" name="trip-start"  >  
+                        <input class="form-control" required type="date" id="startDate" name="trip-start">
                     </div>
                     <div class="input">
                         <label class="form-label card-title" for="">Start time:</label>
-                        <input  class="form-control" required type="time" id="startTime" name="trip-start"  >
+                        <input class="form-control" required type="time" id="startTime" name="trip-start">
                     </div>
-                    
+
                     <div class="TimePassed">
                         <h5 class="card-title">Time Passed </h5>
                         <h3 id="time"></h3>
                     </div>
-                  <button  class="btn btn-success p-20">Sumbit</button> 
+                    <button class="btn btn-success p-20">Sumbit</button>
                 </div>
             </div>
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.16/dayjs.min.js" crossorigin="anonymous"></script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="bundle.js"></script>
 </body>
+
 </html>
